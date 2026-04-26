@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal da Transparência</title>
+
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <header class="gov-header">
+    <div class="gov-header-inner">
+      <a class="gov-brand" href="#inicio" aria-label="Página inicial do Portal da Transparência">
+        <span class="gov-brand-mark" aria-hidden="true">MA</span>
+        <span>
+          <strong>Governo do Maranhão</strong>
+          <small>Portal da Transparência</small>
+          <em>Governo de todos nós</em>
+        </span>
+      </a>
+
+      <button
+        class="gov-menu-button"
+        id="menuButton"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        ☰
+        <span class="sr-only">Abrir menu</span>
+      </button>
+
+      <nav class="gov-nav" id="mainNav" aria-label="Navegação principal">
+        <a href="#inicio">Início</a>
+        <a href="#jornadas">Jornadas</a>
+        <a href="#consultas">Consultas</a>
+        <a href="#termos">Termos</a>
+
+        <div class="accessibility-widget">
+          <button
+            class="accessibility-toggle"
+            id="accessibilityToggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="accessibilityPanel"
+          >
+            ♿ Acessibilidade
+          </button>
+
+          <div class="accessibility-panel" id="accessibilityPanel" hidden>
+            <div class="panel-header">
+              <strong>Acessibilidade</strong>
+              <button
+                id="closeAccessibility"
+                type="button"
+                aria-label="Fechar painel de acessibilidade"
+              >
+                ×
+              </button>
+            </div>
+
+            <button type="button" id="increaseFont">
+              Aumentar fonte <span>A+</span>
+            </button>
+
+            <button type="button" id="decreaseFont">
+              Diminuir fonte <span>A-</span>
+            </button>
+
+            <button type="button" id="toggleContrast">
+              Alto contraste <span>◐</span>
+            </button>
+
+            <button type="button" id="toggleSpacing">
+              Mais espaçamento <span>↕</span>
+            </button>
+
+            <button type="button" id="toggleReadingMode">
+              Leitura fácil <span>✓</span>
+            </button>
+
+            <button type="button" id="resetAccessibility">
+              Restaurar padrão <span>↺</span>
+            </button>
+
+            <p id="fontStatus">Fonte atual: 100%.</p>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="page">
+    <section class="hero" id="inicio">
+      <div class="hero-main">
+        <span class="kicker">Governo do Maranhão · Governo de todos nós</span>
+
+        <h1>Portal da Transparência</h1>
+
+        <p>
+          Encontre informações públicas sobre gastos, contratos, licitações,
+          servidores, obras, receitas, benefícios fiscais, dados abertos e
+          serviços do Estado.
+        </p>
+
+        <form class="hero-search" id="heroSearch">
+          <label for="heroQuery">O que você procura?</label>
+
+          <div class="search-field">
+            <input
+              id="heroQuery"
+              type="search"
+              placeholder="Ex.: gastos com saúde, contratos, servidor, obras..."
+              autocomplete="off"
+            />
+
+            <button type="submit">Buscar</button>
+          </div>
+        </form>
+
+        <div class="quick-actions" aria-label="Acessos rápidos">
+          <button type="button" data-preset="despesas">
+            Onde o dinheiro foi gasto?
+          </button>
+
+          <button type="button" data-preset="contratos">
+            Quem foi contratado?
+          </button>
+
+          <button type="button" data-preset="obras">
+            Acompanhar obras
+          </button>
+
+          <button type="button" data-preset="servidores">
+            Consultar servidor
+          </button>
+
+          <button type="button" data-preset="dados">
+            Baixar dados
+          </button>
+        </div>
+      </div>
+
+      <aside class="assistant-card">
+        <div class="assistant-avatar-large" aria-hidden="true">
+          <img
+            src="https://www.transparencia.ma.gov.br/assets/images/v2/img/Avatar-nv-Juçara-mask.png"
+            alt=""
+          />
+        </div>
+
+        <div>
+          <span>Assistente virtual</span>
+
+          <h2>Não sabe onde procurar?</h2>
+
+          <p>
+            Escreva com palavras simples. A Juçara ajuda a encontrar consultas,
+            explicar termos e ativar recursos de acessibilidade.
+          </p>
+
+          <div class="assistant-card-actions">
+            <button type="button" data-open-assistant>
+              Abrir assistente
+            </button>
+
+            <button type="button" data-accessibility-action="easy">
+              Leitura fácil
+            </button>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="access-strip" aria-label="Recursos de acessibilidade">
+      <div>
+        <strong>Acessibilidade</strong>
+        <span>
+          Recursos rápidos para leitura, contraste, Libras e canais de atendimento.
+        </span>
+      </div>
+
+      <div class="access-strip-actions">
+        <button type="button" data-accessibility-action="font-up">A+</button>
+        <button type="button" data-accessibility-action="font-down">A-</button>
+        <button type="button" data-accessibility-action="contrast">Alto contraste</button>
+        <button type="button" data-accessibility-action="easy">Leitura fácil</button>
+        <button type="button" data-assistant-action="libras">VLibras</button>
+        <button type="button" data-assistant-action="esic">E-Sic</button>
+        <button type="button" data-assistant-action="eouv">E-Ouv</button>
+      </div>
+    </section>
+
+    <section class="numbers-grid" aria-label="Dados em destaque">
+      <article>
+        <span>219</span>
+        <strong>Termos no glossário</strong>
+        <small>Explicações para linguagem técnica.</small>
+      </article>
+
+      <article>
+        <span>131</span>
+        <strong>Unidades gestoras</strong>
+        <small>Com execução orçamentária em 2026.</small>
+      </article>
+
+      <article>
+        <span>1,17 mi</span>
+        <strong>Acessos no ano</strong>
+        <small>Consulta pública em crescimento.</small>
+      </article>
+
+      <article>
+        <span>R$ 3,5 bi</span>
+        <strong>Pessoal e diárias</strong>
+        <small>Informações disponíveis para consulta.</small>
+      </article>
+    </section>
+
+    <section class="intent-section" aria-labelledby="intentTitle">
+      <div class="section-title">
+        <span>Acesso por objetivo</span>
+        <h2 id="intentTitle">O que você quer fazer?</h2>
+        <p>Escolha uma opção em linguagem simples.</p>
+      </div>
+
+      <div class="intent-grid">
+        <button type="button" data-preset="despesas">
+          <span>R$</span>
+          <strong>Ver gastos públicos</strong>
+          <small>Despesas, receitas, orçamento e pagamentos.</small>
+        </button>
+
+        <button type="button" data-preset="licitacoes">
+          <span>LIC</span>
+          <strong>Ver compras e licitações</strong>
+          <small>Editais, compras públicas e processos abertos.</small>
+        </button>
+
+        <button type="button" data-preset="contratos">
+          <span>DOC</span>
+          <strong>Consultar contratos</strong>
+          <small>Empresas, valores, objetos e prazos.</small>
+        </button>
+
+        <button type="button" data-preset="obras">
+          <span>OBR</span>
+          <strong>Acompanhar obras</strong>
+          <small>Situação, andamento, valores e fiscalização.</small>
+        </button>
+
+        <button type="button" data-preset="servidores">
+          <span>SV</span>
+          <strong>Consultar servidores</strong>
+          <small>Remuneração, pessoal, diárias e vínculos.</small>
+        </button>
+
+        <button type="button" data-preset="dados">
+          <span>CSV</span>
+          <strong>Baixar dados</strong>
+          <small>Arquivos para planilhas, pesquisas e análises.</small>
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="journey-section journey-section-v2"
+      id="jornadas"
+      aria-labelledby="journeyTitle"
+    >
+      <div class="section-title journey-title-v2">
+        <span>Jornadas do portal</span>
+        <h2 id="journeyTitle">Por onde você quer começar?</h2>
+        <p>Escolha o caminho mais próximo do que você procura.</p>
+      </div>
+
+      <div class="journey-grid-v2">
+        <article class="journey-card-v2 journey-blue-v2">
+          <div class="journey-card-top-v2">
+            <div class="journey-icon-v2">
+              <img
+                src="https://www.transparencia.ma.gov.br/assets/v2/files/svg/barco.svg"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span>Embarque</span>
+              <h3>Entenda o portal</h3>
+              <p>
+                Aprenda como consultar informações, entender termos técnicos e
+                encontrar ajuda.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-highlight-v2">
+            <div>
+              <strong>219</strong>
+              <small>termos no glossário</small>
+            </div>
+
+            <div>
+              <strong>FAQ</strong>
+              <small>perguntas frequentes</small>
+            </div>
+          </div>
+
+          <div class="journey-links-v2">
+            <a href="https://www.transparencia.ma.gov.br/app/v2/embarque">
+              Como usar o portal
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/glossario">
+              Glossário
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/wp/faq">
+              Perguntas e respostas
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/wp/mapadosite">
+              Mapa do site
+            </a>
+          </div>
+        </article>
+
+        <article class="journey-card-v2 journey-green-v2">
+          <div class="journey-card-top-v2">
+            <div class="journey-icon-v2">
+              <img
+                src="https://www.transparencia.ma.gov.br/assets/v2/files/svg/Grupo1083.svg"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span>Fique por dentro</span>
+              <h3>Veja onde o dinheiro foi usado</h3>
+              <p>
+                Acompanhe gastos por área, programa, função e unidade gestora.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-highlight-v2">
+            <div>
+              <strong>R$ 614 mi</strong>
+              <small>segurança</small>
+            </div>
+
+            <div>
+              <strong>R$ 964 mi</strong>
+              <small>programas</small>
+            </div>
+          </div>
+
+          <div class="journey-links-v2">
+            <a href="https://www.transparencia.ma.gov.br/app/v2/cidadao_informado">
+              Cidadão informado
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/fique_por_dentro">
+              Estado
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/fique_por_dentro/treeMapUG">
+              Unidade gestora
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/fique_por_dentro_funcao">
+              Funções
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/fique_por_dentro_programa">
+              Programas
+            </a>
+          </div>
+        </article>
+
+        <article class="journey-card-v2 journey-red-v2 journey-featured-v2">
+          <div class="journey-card-top-v2">
+            <div class="journey-icon-v2">
+              <img
+                src="https://www.transparencia.ma.gov.br/assets/v2/files/svg/Grupo1221.svg"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span>Explore</span>
+              <h3>Consulte dados detalhados</h3>
+              <p>
+                Veja despesas, receitas, contratos, licitações, pessoal, obras,
+                emendas e transferências.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-highlight-v2">
+            <div>
+              <strong>R$ 3,5 bi</strong>
+              <small>pessoal e diárias</small>
+            </div>
+
+            <div>
+              <strong>R$ 5,7 bi</strong>
+              <small>transferências</small>
+            </div>
+          </div>
+
+          <div class="journey-links-v2 journey-links-featured-v2">
+            <a href="https://www.transparencia.ma.gov.br/app/v2/despesas">Despesas</a>
+            <a href="https://www.transparencia.ma.gov.br/app/v2/receitas">Receitas</a>
+            <a href="https://www.transparencia.ma.gov.br/app/v2/pessoal">Pessoal e diárias</a>
+            <a href="https://www.transparencia.ma.gov.br/app/v2/pessoal/remuneracao">Remuneração</a>
+            <a href="https://www.transparencia.ma.gov.br/app/compras/consulta-de-compras">Licitações</a>
+            <a href="https://www.transparencia.ma.gov.br/app/compras/consulta-de-contratos">Contratos</a>
+            <a href="https://www.transparencia.ma.gov.br/app/v2/obras">Obras</a>
+            <a href="https://www.transparencia.ma.gov.br/app/v2/emendas">Emendas</a>
+          </div>
+        </article>
+
+        <article class="journey-card-v2 journey-orange-v2">
+          <div class="journey-card-top-v2">
+            <div class="journey-icon-v2">
+              <img
+                src="https://www.transparencia.ma.gov.br/assets/images/v2/svg/Grupo1212.svg"
+                alt=""
+              />
+            </div>
+
+            <div>
+              <span>Nossa história</span>
+              <h3>Conheça a transparência pública</h3>
+              <p>
+                Veja a trajetória do portal, requisitos legais, reconhecimentos e
+                evolução.
+              </p>
+            </div>
+          </div>
+
+          <div class="journey-highlight-v2">
+            <div>
+              <strong>130</strong>
+              <small>requisitos legais</small>
+            </div>
+
+            <div>
+              <strong>Diamante</strong>
+              <small>selo de transparência</small>
+            </div>
+          </div>
+
+          <div class="journey-links-v2">
+            <a href="https://www.transparencia.ma.gov.br/app/v2/nossa_historia">
+              Nossa história
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/selo_diamante/diamante">
+              Selo Diamante
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/wp/sobre">
+              Sobre
+            </a>
+
+            <a href="https://www.transparencia.ma.gov.br/app/v2/big_numbers">
+              Nossos números
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="search-section" id="consultas" aria-labelledby="searchTitle">
+      <div class="search-container">
+        <div class="search-top">
+          <div>
+            <span>Busca & Mais procurados</span>
+            <h2 id="searchTitle">Encontre uma informação no portal</h2>
+            <p>Pesquise por termos simples ou escolha uma consulta frequente.</p>
+          </div>
+
+          <button type="button" data-open-assistant>
+            Ajuda para buscar
+          </button>
+        </div>
+
+        <form class="main-search" id="mainSearch">
+          <input
+            type="search"
+            id="mainQuery"
+            placeholder="Digite o termo que deseja encontrar"
+            autocomplete="off"
+          />
+
+          <button type="submit">Pesquisar</button>
+        </form>
+
+        <div class="popular-grid" aria-label="Mais procurados">
+          <button type="button" data-search="remuneração">
+            <strong>Remuneração</strong>
+            <span>Servidores e vínculos</span>
+          </button>
+
+          <button type="button" data-search="diárias">
+            <strong>Diárias</strong>
+            <span>Viagens e passagens</span>
+          </button>
+
+          <button type="button" data-search="obras">
+            <strong>Obras</strong>
+            <span>Andamento e valores</span>
+          </button>
+
+          <button type="button" data-search="licitação">
+            <strong>Licitação</strong>
+            <span>Compras públicas</span>
+          </button>
+
+          <button type="button" data-search="contratos">
+            <strong>Contratos</strong>
+            <span>Empresas e prazos</span>
+          </button>
+
+          <button type="button" data-search="emendas parlamentares">
+            <strong>Emendas</strong>
+            <span>Recursos parlamentares</span>
+          </button>
+
+          <button type="button" data-search="dados abertos">
+            <strong>Dados abertos</strong>
+            <span>Planilhas e arquivos</span>
+          </button>
+
+          <button type="button" data-search="acesso à informação">
+            <strong>Acesso à informação</strong>
+            <span>E-Sic e serviços</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters-section" aria-labelledby="filtersTitle">
+      <div class="section-title">
+        <span>Consultas públicas</span>
+        <h2 id="filtersTitle">Filtre por tema</h2>
+        <p>Use os filtros para simular uma busca mais precisa.</p>
+      </div>
+
+      <div class="filter-panel">
+        <div class="filter-row">
+          <label>
+            <span>Categoria</span>
+            <select id="categoryFilter">
+              <option value="todos">Todas</option>
+              <option value="dinheiro">Dinheiro público</option>
+              <option value="contratacoes">Contratações</option>
+              <option value="pessoas">Pessoas</option>
+              <option value="fiscalizacao">Fiscalização</option>
+              <option value="dados">Dados</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Tipo</span>
+            <select id="typeFilter">
+              <option value="todos">Todos</option>
+              <option value="consulta">Consulta</option>
+              <option value="painel">Painel</option>
+              <option value="download">Download</option>
+              <option value="documento">Documento</option>
+            </select>
+          </label>
+
+          <label>
+            <span>Ano</span>
+            <select id="yearFilter">
+              <option value="todos">Todos</option>
+              <option value="2026">2026</option>
+              <option value="2025">2025</option>
+              <option value="2024">2024</option>
+            </select>
+          </label>
+
+          <button type="button" id="clearFilters">
+            Limpar filtros
+          </button>
+        </div>
+
+        <div class="active-filters" id="activeFilters"></div>
+      </div>
+
+      <div class="results-info">
+        <span id="resultsCount">12 consultas encontradas</span>
+      </div>
+
+      <div class="service-grid" id="serviceGrid"></div>
+    </section>
+
+    <section class="terms-section" id="termos" aria-labelledby="termsTitle">
+      <div class="section-title">
+        <span>Linguagem cidadã</span>
+        <h2 id="termsTitle">Entenda os termos do portal</h2>
+        <p>Os nomes oficiais continuam, mas agora com explicações simples.</p>
+      </div>
+
+      <div class="terms-grid">
+        <details>
+          <summary>Licitação</summary>
+          <p>Processo usado pelo governo para comprar produtos ou contratar serviços.</p>
+          <button type="button" data-search="licitação">Consultar licitações</button>
+        </details>
+
+        <details>
+          <summary>Renúncia fiscal</summary>
+          <p>Benefício fiscal concedido pelo Estado, reduzindo parte da arrecadação.</p>
+          <button type="button" data-search="renúncia fiscal">Consultar renúncias fiscais</button>
+        </details>
+
+        <details>
+          <summary>Sanção</summary>
+          <p>Punição aplicada a empresas, pessoas ou instituições em caso de irregularidade.</p>
+          <button type="button" data-search="sanção">Consultar sanções</button>
+        </details>
+
+        <details>
+          <summary>Convênio</summary>
+          <p>Parceria ou repasse feito entre o governo e outra instituição.</p>
+          <button type="button" data-search="convênio">Consultar convênios</button>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <section class="virtual-assistant assistant-v2" id="virtualAssistant" aria-label="Assistente virtual">
+    <button
+      class="assistant-toggle assistant-toggle-v2"
+      id="assistantToggle"
+      type="button"
+      aria-label="Abrir assistente virtual"
+      aria-expanded="false"
+      aria-controls="assistantPanel"
+    >
+      <span class="assistant-mini assistant-mini-v2">
+        <img
+          src="https://www.transparencia.ma.gov.br/assets/images/v2/img/Avatar-nv-Juçara-mask.png"
+          alt=""
+        />
+        <span>?</span>
+      </span>
+    </button>
+
+    <div class="assistant-panel assistant-panel-v2" id="assistantPanel" role="dialog" aria-labelledby="assistantTitle" hidden>
+      <div class="assistant-header assistant-header-v2">
+        <div class="assistant-profile">
+          <div class="assistant-profile-avatar" aria-hidden="true">
+            <img
+              src="https://www.transparencia.ma.gov.br/assets/images/v2/img/Avatar-nv-Juçara-mask.png"
+              alt=""
+            />
+          </div>
+
+          <div>
+            <span>Assistente virtual</span>
+            <h2 id="assistantTitle">Juçara</h2>
+            <p>Ajuda para encontrar informações públicas.</p>
+          </div>
+        </div>
+
+        <button id="assistantClose" type="button" aria-label="Fechar assistente">
+          ×
+        </button>
+      </div>
+
+      <div class="assistant-tabs" role="tablist" aria-label="Modos da assistente">
+        <button class="is-active" type="button" data-assistant-tab="buscar">
+          Buscar
+        </button>
+
+        <button type="button" data-assistant-tab="acessibilidade">
+          Acessibilidade
+        </button>
+
+        <button type="button" data-assistant-tab="termos">
+          Termos
+        </button>
+      </div>
+
+      <div class="assistant-body assistant-body-v2">
+        <div class="assistant-live" id="assistantLive" aria-live="polite">
+          Pronta para ajudar.
+        </div>
+
+        <div
+          class="assistant-messages"
+          id="assistantMessages"
+          role="log"
+          aria-live="polite"
+          aria-relevant="additions"
+        >
+          <div class="assistant-message bot">
+            Olá! Eu sou a Juçara. Posso ajudar você a encontrar consultas, explicar termos do portal ou ativar recursos de acessibilidade.
+          </div>
+        </div>
+
+        <div class="assistant-tab-panel" data-assistant-panel="buscar">
+          <div class="assistant-section-label">Ações rápidas</div>
+
+          <div class="assistant-shortcuts assistant-shortcuts-v2">
+            <button type="button" data-assistant-query="despesas">
+              Gastos públicos
+            </button>
+
+            <button type="button" data-assistant-query="licitação">
+              Licitações
+            </button>
+
+            <button type="button" data-assistant-query="contratos">
+              Contratos
+            </button>
+
+            <button type="button" data-assistant-query="remuneração">
+              Servidores
+            </button>
+
+            <button type="button" data-assistant-query="obras">
+              Obras
+            </button>
+
+            <button type="button" data-assistant-query="dados abertos">
+              Dados abertos
+            </button>
+
+            <button type="button" data-assistant-query="diárias">
+              Diárias
+            </button>
+
+            <button type="button" data-assistant-query="emendas parlamentares">
+              Emendas
+            </button>
+          </div>
+        </div>
+
+        <div class="assistant-tab-panel" data-assistant-panel="acessibilidade" hidden>
+          <div class="assistant-section-label">Acessibilidade</div>
+
+          <div class="assistant-shortcuts assistant-shortcuts-v2">
+            <button type="button" data-assistant-a11y="visual">
+              Tenho baixa visão
+            </button>
+
+            <button type="button" data-assistant-a11y="contrast">
+              Alto contraste
+            </button>
+
+            <button type="button" data-assistant-a11y="easy">
+              Leitura fácil
+            </button>
+
+            <button type="button" data-assistant-a11y="spacing">
+              Mais espaçamento
+            </button>
+
+            <button type="button" data-assistant-a11y="keyboard">
+              Usar teclado
+            </button>
+
+            <button type="button" data-assistant-a11y="libras">
+              VLibras
+            </button>
+
+            <button type="button" data-assistant-a11y="esic">
+              E-Sic
+            </button>
+
+            <button type="button" data-assistant-a11y="eouv">
+              E-Ouv
+            </button>
+          </div>
+        </div>
+
+        <div class="assistant-tab-panel" data-assistant-panel="termos" hidden>
+          <div class="assistant-section-label">Explicar termo</div>
+
+          <div class="assistant-shortcuts assistant-shortcuts-v2">
+            <button type="button" data-assistant-term="licitacao">
+              Licitação
+            </button>
+
+            <button type="button" data-assistant-term="renuncia">
+              Renúncia fiscal
+            </button>
+
+            <button type="button" data-assistant-term="sancao">
+              Sanção
+            </button>
+
+            <button type="button" data-assistant-term="convenio">
+              Convênio
+            </button>
+
+            <button type="button" data-assistant-term="despesa">
+              Despesa pública
+            </button>
+
+            <button type="button" data-assistant-term="receita">
+              Receita pública
+            </button>
+          </div>
+        </div>
+
+        <form class="assistant-form assistant-form-v2" id="assistantForm">
+          <label class="sr-only" for="assistantInput">Digite sua dúvida</label>
+
+          <input
+            id="assistantInput"
+            type="text"
+            placeholder="Ex.: quero ver gastos com obras"
+            autocomplete="off"
+          />
+
+          <button type="submit">Enviar</button>
+        </form>
+
+        <div class="assistant-actions assistant-actions-v2">
+          <button id="assistantAccessibleMode" type="button">
+            Modo acessível
+          </button>
+
+          <button id="assistantReadLast" type="button">
+            Ouvir resposta
+          </button>
+
+          <button id="assistantClearChat" type="button">
+            Limpar conversa
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Voltar ao topo">
+    ↑
+  </button>
+
+  <footer class="site-footer">
+    <strong>Governo do Maranhão</strong>
+    <span>Governo de todos nós</span>
+    <small>Portal da Transparência</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,20 @@
+name: Asgard
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sync
+        env: 
+          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
+        run: |
+          rsync -avz --exclude='.git/' --exclude='.github' --delete ./ $REMOTE_PATH
