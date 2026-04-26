@@ -7,14 +7,19 @@ on:
 
 jobs:
   deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Sync
-        env: 
-          REMOTE_PATH: ${{ secrets.REMOTE_PATH }}
-        run: |
-          rsync -avz --exclude='.git/' --exclude='.github' --delete ./ $REMOTE_PATH
+      - name: Copy Files
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          target: ${{ secrets.REMOTE_PATH }}
+          source: "."
+          strip_components: 1
+
