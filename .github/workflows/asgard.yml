@@ -33,8 +33,10 @@ jobs:
           strip_components: 1
 
       - name: Finalize Deployment
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          sudo chown -R ${{ secrets.REMOTE_WEBSERVER }}:${{ secrets.REMOTE_WEBSERVER }} ${{ secrets.REMOTE_PATH }}
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo chown -R ${{ secrets.REMOTE_WEBSERVER }}:${{ secrets.REMOTE_WEBSERVER }} ${{ secrets.REMOTE_PATH }}
