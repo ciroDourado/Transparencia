@@ -202,9 +202,25 @@ document.addEventListener("DOMContentLoaded", () => {
     renderActiveFilters();
 
     if (menuButton && mainNav) {
+        // Seleciona os elementos visuais e de acessibilidade dentro do botão
+        const menuIcon = menuButton.querySelector(".menu-icon");
+        const srText = menuButton.querySelector(".sr-only");
+
         menuButton.addEventListener("click", () => {
+            // A sua lógica original que abre/fecha o menu
             const isOpen = mainNav.classList.toggle("open");
             menuButton.setAttribute("aria-expanded", String(isOpen));
+
+            // Nova lógica: altera o ícone e o texto do leitor de telas
+            if (menuIcon && srText) {
+                if (isOpen) {
+                    menuIcon.textContent = "✕"; // Muda para o X
+                    srText.textContent = "Fechar menu"; // Atualiza acessibilidade
+                } else {
+                    menuIcon.textContent = "☰"; // Volta para o menu Hambúrguer
+                    srText.textContent = "Abrir menu"; // Atualiza acessibilidade
+                }
+            }
         });
     }
 
@@ -528,6 +544,17 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
         }
     }
+
+    document.querySelectorAll('button').forEach(btn => {
+        if (btn.textContent.includes('Leitura fácil') || btn.id === 'toggleReadingMode') {
+            btn.onclick = function (e) {
+                e.preventDefault(); // Impede que o botão faça outra coisa
+                e.stopPropagation(); // Impede que outro script bloqueie
+                document.body.classList.toggle('reading-mode');
+                console.log('Modo leitura fácil ativado/desativado!');
+            }
+        }
+    });
 
     function getFilteredServices() {
         const normalizedQuery = normalize(state.query);
